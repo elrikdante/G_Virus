@@ -1,0 +1,17 @@
+G Virus
+
+Does your app use Resque for background tasks?  It sucks having to click retry a thousand times because of api Timeout errors, database race conditions, etc.  
+
+Introducting, the G Virus.  Giving your failed jobs, new life >=D
+
+Usage:
+/app/jobs/email_sender.rb
+class EmailSenderQueue
+  # The queue is now infected
+  include G_Virus
+  class << self
+    def perform(option={})
+      # send an email
+    end
+  end
+end
